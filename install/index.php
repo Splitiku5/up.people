@@ -5,9 +5,9 @@ use Bitrix\Main\ModuleManager;
 
 Loc::loadMessages(__FILE__);
 
-class up_projector extends CModule
+class up_tasks extends CModule
 {
-	public $MODULE_ID = 'up.projector';
+	public $MODULE_ID = 'up.tasks';
 	public $MODULE_VERSION;
 	public $MODULE_VERSION_DATE;
 	public $MODULE_NAME;
@@ -32,7 +32,7 @@ class up_projector extends CModule
 	{
 		global $DB;
 
-		$DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.projector/install/db/install.sql');
+		$DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.tasks/install/db/install.sql');
 
 		ModuleManager::registerModule($this->MODULE_ID);
 	}
@@ -41,7 +41,7 @@ class up_projector extends CModule
 	{
 		global $DB;
 
-		$DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.projector/install/db/uninstall.sql');
+		$DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.tasks/install/db/uninstall.sql');
 
 		ModuleManager::unRegisterModule($this->MODULE_ID);
 	}
@@ -49,21 +49,21 @@ class up_projector extends CModule
 	public function installFiles(): void
 	{
 		CopyDirFiles(
-			$_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.projector/install/components',
+			$_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.tasks/install/components',
 			$_SERVER['DOCUMENT_ROOT'] . '/local/components/',
 			true,
 			true
 		);
 
 		CopyDirFiles(
-			$_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.projector/install/templates',
+			$_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.tasks/install/templates',
 			$_SERVER['DOCUMENT_ROOT'] . '/local/templates/',
 			true,
 			true
 		);
 
 		CopyDirFiles(
-			$_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.projector/install/routes',
+			$_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.tasks/install/routes',
 			$_SERVER['DOCUMENT_ROOT'] . '/local/routes/',
 			true,
 			true

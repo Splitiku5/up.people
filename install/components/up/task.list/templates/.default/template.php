@@ -1,42 +1,51 @@
-<div style="width: 100%">
-	<div class="mb-4">
-		<a href="/projects/123/issue/" class="button is-success">Create issue</a>
+<?php
+
+/**
+ * @var array $arResult
+ * @var array $arParams
+ */
+
+if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+?>
+
+<div class="columns mb-6">
+	<div class="column">
+		<div class="field">
+			<div class="control">
+				<input class="input" type="text" placeholder="Search for project">
+			</div>
+		</div>
 	</div>
-
-	<table class="table is-hoverable is-fullwidth mb-6">
-		<thead>
-		<tr>
-			<th>#</th>
-			<th>Task</th>
-			<th>Responsible</th>
-			<th>Priority</th>
-			<th>Status</th>
-		</tr>
-		</thead>
-		<tbody>
-		<?php foreach ($arResult['ISSUES'] as $issue):?>
-			<tr>
-				<td><?=$issue['ID']?></td>
-				<td><a href="/issues/<?=$issue['ID'];?>/"><?=$issue['NAME']?></a></td>
-				<td><?=$issue['RESPONSIBLE']?></td>
-				<td><span class="tag is-danger"><?=$issue['PRIORITY']?></span></td>
-				<td><span class="tag is-info"><?=$issue['STATUS']?></span></td>
-			</tr>
-		<?php endforeach;?>
-		</tbody>
-	</table>
-
-	<nav class="pagination" role="navigation" aria-label="pagination">
-		<ul class="pagination-list">
-			<li>
-				<a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
-			</li>
-			<li>
-				<a class="pagination-link" aria-label="Goto page 2">2</a>
-			</li>
-			<li>
-				<a class="pagination-link" aria-label="Goto page 3">3</a>
-			</li>
-		</ul>
-	</nav>
+	<div class="column">
+		<a class="button is-success is-pulled-right" href="/projects/create/">Create project</a>
+	</div>
 </div>
+
+<div class="columns">
+	<?php foreach ($arResult['PROJECTS'] as $project): ?>
+	<div class="column">
+		<div class="card project-card">
+			<header class="card-header">
+				<a class="card-header-title" href="/projects/<?=$project['id'];?>/">
+					<?= $project['name']; ?>
+				</a>
+				<button class="card-header-icon" aria-label="more options">
+					<span class="icon disabled">
+						⭐
+					</span>
+				</button>
+			</header>
+			<div class="card-content">
+				<div class="content">
+					<?=$project['description'];?>
+				</div>
+			</div>
+			<footer class="card-footer">
+				<span class="card-footer-item is-size-7"><strong>Tasks opened</strong>: <?=$project['tasks_count'];?></span>
+				<span class="card-footer-item is-size-7"><strong>Last activity</strong>: <?=$project['last_activity']->format($arResult['DATE_FORMAT']);?></span>
+			</footer>
+		</div>
+	</div>
+	<?php endforeach; ?>
+</div>
+

@@ -1,38 +1,47 @@
 <?php
 
-class TaskListComponent extends CBitrixComponent
+class ProjectListComponent extends CBitrixComponent
 {
 	public function executeComponent()
 	{
-		$this->fetchIssues();
+		$this->prepareTemplateParams();
+		$this->fetchProjectsList();
 		$this->includeComponentTemplate();
 	}
 
-	protected function fetchIssues()
+	public function onPrepareComponentParams($arParams)
 	{
-		$this->arResult['ISSUES'] = [
-			[
-				'ID' => 555,
-				'NAME' => 'Create design prototype',
-				'RESPONSIBLE' => 'Eugene Zadorin',
-				'PRIORITY' => 'High',
-				'STATUS' => 'In progress',
-			],
-			[
-				'ID' => 111,
-				'NAME' => 'Build database schema',
-				'RESPONSIBLE' => 'Eugene Zadorin',
-				'PRIORITY' => 'Normal',
-				'STATUS' => 'New',
-			],
-			[
-				'ID' => 222,
-				'NAME' => 'Write some tests',
-				'RESPONSIBLE' => 'Eugene Zadorin',
-				'PRIORITY' => 'Low',
-				'STATUS' => 'Done',
-			],
-		];
+		$arParams['DATE_FORMAT'] = $arParams['DATE_FORMAT'] ?? 'd.m.Y';
+
+		return $arParams;
 	}
 
+	protected function prepareTemplateParams()
+	{
+		$this->arResult['DATE_FORMAT'] = $this->arParams['DATE_FORMAT'];
+	}
+
+	protected function fetchProjectsList()
+	{
+		// db connect
+		// select * from projects
+		$projects = [
+			[
+				'id' => 123,
+				'name' => 'Bitrix University Demo',
+				'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis commodi cum dicta ex excepturi in ipsa, iusto maxime molestiae nobis non officia officiis porro sunt, tempore vel vero, voluptates!',
+				'tasks_count' => 10,
+				'last_activity' => new DateTime(),
+			],
+			[
+				'id' => 456,
+				'name' => 'Projector - simple tool for managing issues',
+				'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+				'tasks_count' => 34,
+				'last_activity' => new DateTime(),
+			]
+		];
+
+		$this->arResult['PROJECTS'] = $projects;
+	}
 }

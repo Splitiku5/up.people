@@ -12,7 +12,7 @@ Add `projector.php` in `routing` section of `${doc_root}/bitrix/.settings.php` f
 
 ```php
 'routing' => ['value' => [
-	'config' => ['projector.php']
+	'config' => ['task.php']
 ]],
 ```
 

@@ -23,7 +23,7 @@
 		<nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
 			<div class="navbar-brand">
 				<a class="navbar-item has-text-weight-semibold is-size-4 logo" href="/">
-					<span>🔥</span> Projector 365
+					<span>🔥</span> Tasks
 				</a>
 
 				<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

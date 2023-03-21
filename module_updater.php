@@ -6,7 +6,7 @@ use Bitrix\Main\Config\Option;
 function __projectorMigrate(int $nextVersion, callable $callback)
 {
 	global $DB;
-	$moduleId = 'up.projector';
+	$moduleId = 'up.task';
 
 	if (!ModuleManager::isModuleInstalled($moduleId))
 	{
