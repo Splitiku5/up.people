@@ -53,10 +53,7 @@
 								About
 							</a>
 							<a class="navbar-item">
-								Jobs
-							</a>
-							<a class="navbar-item">
-								Contact
+								Contacts
 							</a>
 							<hr class="navbar-divider">
 							<a class="navbar-item">
@@ -67,16 +64,7 @@
 				</div>
 
 				<div class="navbar-end">
-					<div class="navbar-item">
-						<div class="buttons">
-							<a class="button is-success">
-								<strong>Sign up</strong>
-							</a>
-							<a class="button is-light">
-								Log in
-							</a>
-						</div>
-					</div>
+
 				</div>
 			</div>
 		</nav>
