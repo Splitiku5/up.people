@@ -22,12 +22,12 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 </div>
 
 <div class="columns">
-	<?php foreach ($arResult['PROJECTS'] as $project): ?>
+	<?php foreach ($arResult['TASKS'] as $tasks): ?>
 	<div class="column">
 		<div class="card project-card">
 			<header class="card-header">
-				<a class="card-header-title" href="/projects/<?=$project['id'];?>/">
-					<?= $project['name']; ?>
+				<a class="card-header-title" href="/projects/<?=$tasks['id'];?>/">
+					<?= $tasks['name']; ?>
 				</a>
 				<button class="card-header-icon" aria-label="more options">
 					<span class="icon disabled">
@@ -37,12 +37,12 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 			</header>
 			<div class="card-content">
 				<div class="content">
-					<?=$project['description'];?>
+					<?=$tasks['description'];?>
 				</div>
 			</div>
 			<footer class="card-footer">
-				<span class="card-footer-item is-size-7"><strong>Tasks opened</strong>: <?=$project['tasks_count'];?></span>
-				<span class="card-footer-item is-size-7"><strong>Last activity</strong>: <?=$project['last_activity']->format($arResult['DATE_FORMAT']);?></span>
+				<span class="card-footer-item is-size-7"><strong>Tasks opened</strong>: <?=$tasks['tasks_count'];?></span>
+				<span class="card-footer-item is-size-7"><strong>Last activity</strong>: <?=$tasks['last_activity']->format($arResult['DATE_FORMAT']);?></span>
 			</footer>
 		</div>
 	</div>

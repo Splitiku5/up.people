@@ -1,11 +1,11 @@
 <?php
 
-class ProjectListComponent extends CBitrixComponent
+class TasksListComponent extends CBitrixComponent
 {
 	public function executeComponent()
 	{
 		$this->prepareTemplateParams();
-		$this->fetchProjectsList();
+		$this->fetchTasksList();
 		$this->includeComponentTemplate();
 	}
 
@@ -21,11 +21,11 @@ class ProjectListComponent extends CBitrixComponent
 		$this->arResult['DATE_FORMAT'] = $this->arParams['DATE_FORMAT'];
 	}
 
-	protected function fetchProjectsList()
+	protected function fetchTasksList()
 	{
 		// db connect
 		// select * from projects
-		$projects = [
+		$tasks = [
 			[
 				'id' => 123,
 				'name' => 'Bitrix University Demo',
@@ -42,6 +42,6 @@ class ProjectListComponent extends CBitrixComponent
 			]
 		];
 
-		$this->arResult['PROJECTS'] = $projects;
+		$this->arResult['TASKS'] = $tasks;
 	}
 }
