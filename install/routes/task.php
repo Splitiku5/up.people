@@ -5,12 +5,12 @@ use Bitrix\Main\Routing\RoutingConfigurator;
 
 return function (RoutingConfigurator $routes) {
 
-	$routes->get('/', new PublicPageController('/local/modules/up.task/views/project-list.php'));
-	$routes->get('/projects/', new PublicPageController('/local/modules/up.task/views/project-list.php'));
-	$routes->get('/projects/create/', new PublicPageController('/local/modules/up.task/views/project-create.php'));
-	$routes->get('/projects/{id}/edit/', new PublicPageController('/local/modules/up.task/views/project-create.php'));
-	$routes->get('/projects/{id}/issue/', new PublicPageController('/local/modules/up.task/views/task-create.php'));
-	$routes->get('/projects/{id}/', new PublicPageController('/local/modules/up.task/views/project-details.php'));
+	$routes->get('/', new PublicPageController('/local/modules/up.tasks/views/project-list.php'));
+	$routes->get('/projects/', new PublicPageController('/local/modules/up.tasks/views/project-list.php'));
+	$routes->get('/projects/create/', new PublicPageController('/local/modules/up.tasks/views/project-create.php'));
+	$routes->get('/projects/{id}/edit/', new PublicPageController('/local/modules/up.tasks/views/project-create.php'));
+	$routes->get('/projects/{id}/issue/', new PublicPageController('/local/modules/up.tasks/views/task-create.php'));
+	$routes->get('/projects/{id}/', new PublicPageController('/local/modules/up.tasks/views/task-details.php'));
 
 	$routes->post('/projects/', function () {
 		// create new project
