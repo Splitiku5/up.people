@@ -30,11 +30,18 @@ __projectorMigrate(2, function($updater, $DB)
 {
 	if ($updater->CanUpdateDatabase() && !$updater->TableExists('up_projector_issues'))
 	{
-		$DB->query('CREATE TABLE IF NOT EXISTS up_projector_issues (
-			ID INT(11) NOT NULL AUTO_INCREMENT,
-			PROJECT_ID INT(11) NOT NULL,
-			NAME VARCHAR(255) NOT NULL,
-			PRIMARY KEY(ID)
-		);');
+		$DB->query("CREATE TABLE IF NOT EXISTS up_tasks
+(
+	ID INT AUTO_INCREMENT NOT NULL,
+	TITLE VARCHAR(255) NOT NULL,
+	DESCRIPTION VARCHAR(255),
+	DATE_CREATION datetime not null,
+	DATE_DEADLINE datetime,
+	DATE_UPDATE datetime,
+	STATUS VARCHAR(255) not null default 'new',
+	PRIORITY VARCHAR(255) not null default 'normal',
+	PRIMARY KEY (ID)
+);
+	");
 	}
 });
