@@ -1,0 +1,10 @@
+.card-content {
+	height: 100px;
+	overflow: clip;
+}
+
+.card-header {
+	height: 50px;
+
+	overflow: clip;
+}
