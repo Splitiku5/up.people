@@ -26,7 +26,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 	<div class="column">
 		<div class="card project-card">
 			<header class="card-header">
-				<a class="card-header-title" href="/projects/<?=$tasks['id'];?>/">
+				<a class="card-header-title" href="/task/<?=$tasks['id'];?>/">
 					<?= $tasks['name']; ?>
 				</a>
 				<button class="card-header-icon" aria-label="more options">

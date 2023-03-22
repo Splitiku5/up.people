@@ -11,7 +11,7 @@ use Bitrix\Main\Localization\Loc,
 Loc::loadMessages(__FILE__);
 
 /**
- * Class TasksTable
+ * Class Tasks
  *
  * Fields:
  * <ul>
