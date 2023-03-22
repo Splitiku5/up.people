@@ -55,33 +55,42 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	<?php
 	endforeach; ?>
 </div>
-
-<div class="modal" id="modal-js-example">
+<form name="Create Task" action="" method="post">
+<div class="modal" id="modal-js-example" >
 	<div class="modal-background"></div>
 	<div class="modal-card">
 		<header class="modal-card-head">
 			<p class="modal-card-title">Create new task</p>
 			<button class="delete" aria-label="close"></button>
 		</header>
+
 		<section class="modal-card-body">
 			<div class="field">
 				<label class="label">Title</label>
 				<div class="control">
-					<input class="input is-primary mb-4 is-large" type="text" placeholder="Task title">
+					<input name="title" class="input is-primary mb-4 is-large" type="text" placeholder="Task title">
 				</div>
 			</div>
 			<div class="field">
 				<label class="label">Description</label>
 				<div class="control">
-					<input class="input is-primary mb-4 " type="text" placeholder="Task description">
+					<input name="description" class="input is-primary mb-4 " type="text" placeholder="Task description">
+				</div>
+			</div>
+			<div class="columns" style="margin-bottom:0px">
+				<div class="column">
+					<label class="label">Deadline</label>
+				</div>
+				<div class="column">
+					<label class="label is-pulled-right">Priority</label>
 				</div>
 			</div>
 			<div class="columns">
 				<div class="column">
 					<div class="field ">
-						<label class="label">Deadline</label>
+
 						<div class="control">
-							<input type="date" class="input is-primary mb-4" type="text" placeholder="Task title">
+							<input name="date" type="date" class="input is-primary mb-4" placeholder="Task title">
 						</div>
 
 					</div>
@@ -89,12 +98,12 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 				<div class="column">
 					<div class="select is-primary is-pulled-right">
 						<div class="field">
-							<label class="label">Priority</label>
-							<div class="control">
-								<select>
-									<option>Low</option>
-									<option>Normal</option>
-									<option>High</option>
+
+							<div class="control" >
+								<select name="priority">
+									<option value="low">Low</option>
+									<option value="normal">Normal</option>
+									<option value="high">High</option>
 								</select>
 							</div>
 						</div>
@@ -104,12 +113,12 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 			</div>
 		</section>
 		<footer class="modal-card-foot">
-			<button class="button is-success">Create task</button>
+			<button class="button is-success" type="submit">Create task</button>
 			<button class="button">Cancel</button>
 		</footer>
 	</div>
 </div>
-
+</form>
 
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
