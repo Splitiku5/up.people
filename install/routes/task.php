@@ -9,4 +9,6 @@ return function (RoutingConfigurator $routes) {
 	$routes->get('/tasks/', new PublicPageController('/local/modules/up.tasks/views/task-list.php'));
 
 	$routes->get('/task/{id}/', new PublicPageController('/local/modules/up.tasks/views/task-details.php'))->where('id', '[0-9]+');
+
+	$routes->get('/task/create/', new PublicPageController('/local/modules/up.tasks/views/task-create.php'));
 };
