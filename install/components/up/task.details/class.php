@@ -18,7 +18,12 @@ class TaskDetailsComponent extends CBitrixComponent {
 
 		Bitrix\Main\Loader::includeModule('up.tasks');
 		$result = \Up\Tasks\TasksTable::getById($id);
-		$task = $result->fetch();
+		foreach ($result->fetch() as $key => $row)
+		{
+			$task[$key] = $row ?: 'Не указано';
+		}
+		$task['DATE_DEADLINE']!=='Не указано' ?:  $task['DATE_CREATION']->format('d.m.Y');
+
 
 		$this->arResult['task'] = $task;
 	}

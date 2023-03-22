@@ -41,7 +41,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 	<div class="level-item has-text-centered">
 		<div>
 			<p class="heading">Дедлайн</p>
-			<p class="title"><?= $arResult['task']['DATE_DEADLINE']->format('d.m.Y')?></p>
+			<p class="title"><?= $arResult['task']['DATE_DEADLINE']?></p>
 		</div>
 	</div>
 </nav>

@@ -26,11 +26,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	</div>
 </div>
 
-<div class="columns">
+<div class="columns is-flex-wrap-wrap  ">
 	<?php
 	foreach ($arResult['TASKS'] as $tasks): ?>
-		<div class="column">
-			<div class="card project-card">
+		<div class="column is-4">
+			<div class="card">
 				<header class="card-header">
 					<a class="card-header-title" href="/task/<?= $tasks['ID']; ?>/">
 						<?= $tasks['TITLE']; ?>
@@ -43,7 +43,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 				</header>
 				<div class="card-content">
 					<div class="content">
-						<?= $tasks['DESCRIPTION']; ?>
+						<?=$tasks['DESCRIPTION']?>
 					</div>
 				</div>
 				<footer class="card-footer">
