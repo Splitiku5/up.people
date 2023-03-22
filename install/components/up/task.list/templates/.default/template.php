@@ -26,8 +26,8 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 	<div class="column">
 		<div class="card project-card">
 			<header class="card-header">
-				<a class="card-header-title" href="/task/<?=$tasks['id'];?>/">
-					<?= $tasks['name']; ?>
+				<a class="card-header-title" href="/task/<?=$tasks['ID'];?>/">
+					<?= $tasks['TITLE']; ?>
 				</a>
 				<button class="card-header-icon" aria-label="more options">
 					<span class="icon disabled">
@@ -37,12 +37,12 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 			</header>
 			<div class="card-content">
 				<div class="content">
-					<?=$tasks['description'];?>
+					<?=$tasks['DESCRIPTION'];?>
 				</div>
 			</div>
 			<footer class="card-footer">
-				<span class="card-footer-item is-size-7"><strong>Tasks opened</strong>: <?=$tasks['tasks_count'];?></span>
-				<span class="card-footer-item is-size-7"><strong>Last activity</strong>: <?=$tasks['last_activity']->format($arResult['DATE_FORMAT']);?></span>
+				<a href="/task/<?=$tasks['ID'];?>/" class="card-footer-item">View more</a>
+				<a href="#" class="card-footer-item">Success</a>
 			</footer>
 		</div>
 	</div>

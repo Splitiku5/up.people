@@ -23,24 +23,11 @@ class TasksListComponent extends CBitrixComponent
 
 	protected function fetchTasksList()
 	{
-		// db connect
-		// select * from projects
-		$tasks = [
-			[
-				'id' => 123,
-				'name' => 'Bitrix University Demo',
-				'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem blanditiis commodi cum dicta ex excepturi in ipsa, iusto maxime molestiae nobis non officia officiis porro sunt, tempore vel vero, voluptates!',
-				'tasks_count' => 10,
-				'last_activity' => new DateTime(),
-			],
-			[
-				'id' => 456,
-				'name' => 'Projector - simple tool for managing issues',
-				'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-				'tasks_count' => 34,
-				'last_activity' => new DateTime(),
-			]
-		];
+		Bitrix\Main\Loader::includeModule('up.tasks');
+
+		$result = \Up\Tasks\TasksTable::getList(['select' => ['*']]);
+		$tasks = $result->fetchAll();
+
 
 		$this->arResult['TASKS'] = $tasks;
 	}

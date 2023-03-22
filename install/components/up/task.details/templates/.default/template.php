@@ -11,10 +11,10 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 <section class="hero is-link">
 	<div class="hero-body">
 		<p class="title">
-			<?= $arResult['task']['title'] ?>
+			<?= $arResult['task']['TITLE'] ?>
 		</p>
 		<p class="subtitle">
-			<?= $arResult['task']['description'] ?>
+			<?= $arResult['task']['DESCRIPTION'] ?>
 		</p>
 	</div>
 </section>
@@ -23,25 +23,25 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 	<div class="level-item has-text-centered">
 		<div>
 			<p class="heading">Дата создания</p>
-			<p class="title"><?= $arResult['task']['date_creation']->format('d.m.Y')?></p>
+			<p class="title"><?= $arResult['task']['DATE_CREATION']->format('d.m.Y')?></p>
 		</div>
 	</div>
 	<div class="level-item has-text-centered">
 		<div>
 			<p class="heading">Приоритет</p>
-			<p class="title"><?= $arResult['task']['priority']?></p>
+			<p class="title"><?= $arResult['task']['PRIORITY']?></p>
 		</div>
 	</div>
 	<div class="level-item has-text-centered">
 		<div>
 			<p class="heading">Статус</p>
-			<p class="title"><?= $arResult['task']['status']?></p>
+			<p class="title"><?= $arResult['task']['STATUS']?></p>
 		</div>
 	</div>
 	<div class="level-item has-text-centered">
 		<div>
 			<p class="heading">Дедлайн</p>
-			<p class="title"><?= $arResult['task']['date_deadline']->format('d.m.Y')?></p>
+			<p class="title"><?= $arResult['task']['DATE_DEADLINE']->format('d.m.Y')?></p>
 		</div>
 	</div>
 </nav>

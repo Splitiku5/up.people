@@ -1,5 +1,5 @@
 <?php
-namespace Bitrix\Tasks;
+namespace Up\Tasks;
 
 use Bitrix\Main\Localization\Loc,
     Bitrix\Main\ORM\Data\DataManager,
@@ -37,7 +37,7 @@ class TasksTable extends DataManager
      */
     public static function getTableName()
     {
-        return 'up_tasks';
+        return 'up_tasks_task';
     }
 
     /**

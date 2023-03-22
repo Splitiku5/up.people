@@ -30,7 +30,7 @@ __projectorMigrate(2, function($updater, $DB)
 {
 	if ($updater->CanUpdateDatabase() && !$updater->TableExists('up_projector_issues'))
 	{
-		$DB->query("CREATE TABLE IF NOT EXISTS up_tasks
+		$DB->query("CREATE TABLE IF NOT EXISTS up_tasks_task
 (
 	ID INT AUTO_INCREMENT NOT NULL,
 	TITLE VARCHAR(255) NOT NULL,
