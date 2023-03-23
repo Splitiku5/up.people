@@ -5,12 +5,8 @@
  * @var array $arParams
  */
 
-if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
-{
-	die();
-}
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 ?>
-
 <div class="columns mb-6">
 	<div class="column">
 		<div class="field">
@@ -35,11 +31,12 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 					<a class="card-header-title" href="/task/<?= $tasks['ID']; ?>/">
 						<?= $tasks['TITLE']; ?>
 					</a>
-					<button class="card-header-icon" aria-label="more options">
+					<a class="card-header-icon" aria-label="more options"  href="/delete/<?= $tasks['ID']; ?>/" onclick="return confirm('Do you want delete this task?')">
+						<input type="hidden" name="ID" value="<?=$tasks['ID']?>">
 					<span class="icon disabled">
-						⭐
+						❌
 					</span>
-					</button>
+					</a>
 				</header>
 				<div class="card-content">
 					<div class="content">
@@ -61,7 +58,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 	<div class="modal-card">
 		<header class="modal-card-head">
 			<p class="modal-card-title">Create new task</p>
-			<button class="delete" aria-label="close"></button>
+			<button class="delete" type="reset" aria-label="close"></button>
 		</header>
 
 		<section class="modal-card-body">
@@ -88,11 +85,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 			<div class="columns">
 				<div class="column">
 					<div class="field ">
-
 						<div class="control">
-							<input name="date" type="date" class="input is-primary mb-4" placeholder="Task title">
+							<input name="deadline" type="date" class="input is-primary mb-4">
 						</div>
-
 					</div>
 				</div>
 				<div class="column">
@@ -114,12 +109,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 		</section>
 		<footer class="modal-card-foot">
 			<button class="button is-success" type="submit">Create task</button>
-			<button class="button">Cancel</button>
+			<button class="button" type="reset" >Cancel</button>
 		</footer>
 	</div>
 </div>
 </form>
-
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
 		// Functions to open and close a modal
@@ -127,7 +121,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 		{
 			$el.classList.add('is-active');
 		}
-
 		function closeModal($el)
 		{
 			$el.classList.remove('is-active');

@@ -7,14 +7,13 @@
 
 if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 ?>
-
 <section class="hero is-link">
-	<div class="hero-body">
-		<p class="title">
-			<?= $arResult['task']['TITLE'] ?>
+	<div class="hero-body px-2 py-2">
+		<p>
+			<input class="input-title is-fullwidth" type="text" placeholder="Link input" value="<?= $arResult['task']['TITLE'] ?>">
 		</p>
-		<p class="subtitle">
-			<?= $arResult['task']['DESCRIPTION'] ?>
+		<p>
+			<textarea rows="5" class="input-desk is-fullwidth" type="text" placeholder="Link input"><?= $arResult['task']['DESCRIPTION'] ?></textarea>
 		</p>
 	</div>
 </section>
@@ -22,32 +21,33 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 <nav class="level">
 	<div class="level-item has-text-centered">
 		<div>
-			<p class="heading">Дата создания</p>
+			<p class="heading">Date creation</p>
 			<p class="title"><?= $arResult['task']['DATE_CREATION']->format('d.m.Y')?></p>
 		</div>
 	</div>
 	<div class="level-item has-text-centered">
 		<div>
-			<p class="heading">Приоритет</p>
+			<p class="heading">Priority</p>
 			<p class="title"><?= $arResult['task']['PRIORITY']?></p>
 		</div>
 	</div>
 	<div class="level-item has-text-centered">
 		<div>
-			<p class="heading">Статус</p>
+			<p class="heading">Status</p>
 			<p class="title"><?= $arResult['task']['STATUS']?></p>
 		</div>
 	</div>
 	<div class="level-item has-text-centered">
-		<div>
-			<p class="heading">Дедлайн</p>
-			<p class="title"><?= $arResult['task']['DATE_DEADLINE']?></p>
+		<div class="control">
+			<div class="heading">Deadline
+				<input name="Date Deadline" type="date" class="input is-danger mb-4" value="<?= $arResult['task']['DATE_DEADLINE']->format('Y-m-d') ?>">
+			</div>
 		</div>
 	</div>
+	</div>
 </nav>
-<div class="buttons is-justify-content-center">
-	<button class="button is-info">Изменить задачу</button>
-	<button class="button is-success ">Отметить выполненной</button>
-	<button class="button is-danger ">Удалить задачу</button>
+<div class="buttons is-justify-content-right">
+	<button class="button is-success ">Save</button>
+	<button class="button is-danger ">Delete task</button>
 </div>
 

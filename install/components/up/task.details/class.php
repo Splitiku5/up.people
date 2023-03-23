@@ -20,12 +20,18 @@ class TaskDetailsComponent extends CBitrixComponent {
 		$result = \Up\Tasks\TasksTable::getById($id);
 		foreach ($result->fetch() as $key => $row)
 		{
+
 			$task[$key] = $row ?: 'Не указано';
 		}
-		$task['DATE_DEADLINE']!=='Не указано' ?:  $task['DATE_CREATION']->format('d.m.Y');
+		if ($task['DATE_DEADLINE'] === 'Не указано')
+        {
+            unset($task['DATE_DEADLINE']);
+        }
 
 
 		$this->arResult['task'] = $task;
+
+        echo $task['DATE_DEADLINE'] ?: 'null';
 	}
 
 

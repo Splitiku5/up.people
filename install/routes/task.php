@@ -8,6 +8,8 @@ return function (RoutingConfigurator $routes) {
 	$routes->get('/', new PublicPageController('/local/modules/up.tasks/views/task-list.php'));
     $routes->post('/', new PublicPageController('/local/modules/up.tasks/views/task-create.php'));
 
+    $routes->get('/delete/{id}/', new PublicPageController('/local/modules/up.tasks/views/task-delete.php'))->where('id', '[0-9]+');
+
 
 	$routes->get('/tasks/', new PublicPageController('/local/modules/up.tasks/views/task-list.php'));
 

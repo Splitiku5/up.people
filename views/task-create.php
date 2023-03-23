@@ -2,16 +2,18 @@
 /**
  * @var CMain $APPLICATION
  */
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Tasks");
+var_dump($_POST['deadline']);
 Bitrix\Main\Loader::includeModule('up.tasks');
-$result = \Up\Tasks\TasksTable::add([
-	'TITLE' => $_POST['title'],
-	'DESCRIPTION' => $_POST['description'] ?: '',
-	'DATE_CREATION' => \Bitrix\Main\Type\Date::createFromPhp(new DateTime()),
-	'DATE_DEADLINE' => strtotime($_POST['deadline']) ?: '',
-	'PRIORITY' => $_POST['priority'],
-  	]);
+$result = \Up\Tasks\TasksTable::createObject()
+                                ->setTitle($_POST['title'])
+                                ->setDescription($_POST['description'] ?: '')
+                                ->setDateCreation(new \Bitrix\Main\Type\DateTime())
+                                ->setDateDeadline(((new \Bitrix\Main\Type\DateTime($_POST['deadline'],'Y-m-d'))) ?: '')
+                                ->setPriority($_POST['priority'])
+                                ->save();
 if (!$result->isSuccess())
 {
 	$messages = $result->getErrorMessages();
@@ -27,9 +29,7 @@ if (!$result->isSuccess())
 		</article>';
 	}
 }
-
-$APPLICATION->IncludeComponent('up:task.list', '', [
-
-]);
+header('Location: /');
+$APPLICATION->IncludeComponent('up:task.list', '', []);
 
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
