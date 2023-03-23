@@ -12,6 +12,7 @@ class TaskDetailsComponent extends CBitrixComponent {
 	protected function prepareComponentParams()
 	{
 		$this->arParams['id'] = (int)$_REQUEST['id'];
+
 	}
 
 	protected function fetchTask($id) {
@@ -27,13 +28,6 @@ class TaskDetailsComponent extends CBitrixComponent {
         {
             unset($task['DATE_DEADLINE']);
         }
-
-
 		$this->arResult['task'] = $task;
-
-        echo $task['DATE_DEADLINE'] ?: 'null';
 	}
-
-
-
 }

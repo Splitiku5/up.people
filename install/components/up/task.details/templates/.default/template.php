@@ -40,11 +40,11 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 	<div class="level-item has-text-centered">
 		<div class="control">
 			<div class="heading">Deadline
-				<input name="Date Deadline" type="date" class="input is-danger mb-4" value="<?= $arResult['task']['DATE_DEADLINE']->format('Y-m-d') ?>">
+				<input name="Date Deadline" type="date" class="input is-danger mb-4" value="<?= $arResult['task']['DATE_DEADLINE'] ? $arResult['task']['DATE_DEADLINE']->format('Y-m-d') : 'null' ?>">
 			</div>
 		</div>
 	</div>
-	</div>
+
 </nav>
 <div class="buttons is-justify-content-right">
 	<button class="button is-success ">Save</button>
