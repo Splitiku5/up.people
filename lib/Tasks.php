@@ -10,7 +10,7 @@ class Tasks
     {
         if (!$query)
         {
-            $result = \Up\Tasks\TasksTable::getList(['select' => ['*']]);
+            $result = Up\Tasks\Model\TasksTable::getList(['select' => ['*']]);
         }
         else
         {
@@ -22,12 +22,12 @@ class Tasks
 
     public static function getTaskByID($id)
     {
-        return \Up\Tasks\TasksTable::getById($id);
+        return Up\Tasks\Model\TasksTable::getById($id);
     }
 
     public static function createTask($arguments)
     {
-        return \Up\Tasks\TasksTable::createObject()
+        return Up\Tasks\Model\TasksTable::createObject()
             ->setTitle($arguments['title'])
             ->setDescription($arguments['description'] ?: '')
             ->setDateCreation(new \Bitrix\Main\Type\DateTime())
@@ -37,12 +37,12 @@ class Tasks
     }
     public static function deleteTask($id): void
     {
-        \Up\Tasks\TasksTable::delete($id);
+        Up\Tasks\Model\TasksTable::delete($id);
     }
 
     public static function updateTask($arguments)
     {
-        $result = \Up\Tasks\TasksTable::getById((int)$_POST['ID'])->fetchObject()
+        $result = Up\Tasks\ModelTasksTable::getById((int)$_POST['ID'])->fetchObject()
             ->setTitle($arguments['TITLE'])
             ->setDescription($arguments['DESCRIPTION'] ?: '')
             ->setDateDeadline(((new \Bitrix\Main\Type\DateTime($arguments['DATE_DEADLINE'], 'Y-m-d'))) ?: '')

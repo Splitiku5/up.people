@@ -7,7 +7,7 @@ class TaskDetailsComponent extends CBitrixComponent
 		$this->prepareComponentParams();
 		$this->fetchTask($this->arParams['id']);
 		$this->includeComponentTemplate();
-
+        \Bitrix\Main\Loader::includeModule('up.tasks');
 	}
 
 	protected function prepareComponentParams()

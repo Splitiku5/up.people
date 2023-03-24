@@ -1,5 +1,6 @@
 <?php
-namespace Up\Tasks;
+
+namespace Up\Tasks\Model;
 
 use Bitrix\Main\Localization\Loc,
     Bitrix\Main\ORM\Data\DataManager,
