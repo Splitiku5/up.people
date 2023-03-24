@@ -4,10 +4,11 @@ class TasksListComponent extends CBitrixComponent
 {
 	public function executeComponent()
 	{
+        \Bitrix\Main\Loader::includeModule('up.tasks');
 		$this->prepareTemplateParams();
 		$this->fetchTasksList($this->arParams['query']);
 		$this->includeComponentTemplate();
-        \Bitrix\Main\Loader::includeModule('up.tasks');
+
 	}
 
 	public function onPrepareComponentParams($arParams)

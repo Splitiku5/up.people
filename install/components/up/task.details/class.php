@@ -1,13 +1,14 @@
 <?php
 
+use \Up\Tasks\Model\TasksTable;
 class TaskDetailsComponent extends CBitrixComponent
 {
 	public function executeComponent()
 	{
+        \Bitrix\Main\Loader::includeModule('up.tasks');
 		$this->prepareComponentParams();
 		$this->fetchTask($this->arParams['id']);
 		$this->includeComponentTemplate();
-        \Bitrix\Main\Loader::includeModule('up.tasks');
 	}
 
 	protected function prepareComponentParams()
@@ -19,7 +20,7 @@ class TaskDetailsComponent extends CBitrixComponent
 	protected function fetchTask($id)
     {
 
-        $result = \Up\TasksAPI\Tasks::getTaskByID($id);
+        $result = \Up\Tasks\Tasks::getTaskByID($id);
 		foreach ($result->fetch() as $key => $row)
 		{
 
@@ -29,7 +30,7 @@ class TaskDetailsComponent extends CBitrixComponent
         {
             unset($task['DATE_DEADLINE']);
         }
-        $arrPriority = \Up\Tasks\TasksTable::getStatuses();
+        $arrPriority = TasksTable::getStatuses();
         $priority= "<select class='select is-link' name='Priority'>";
         $priorityElement = $task['PRIORITY'];
 
@@ -42,7 +43,7 @@ class TaskDetailsComponent extends CBitrixComponent
 
         $task['PRIORITY_SELECT'] = $priority;
 
-        $arrStatus = \Up\Tasks\TasksTable::getPriorities();
+        $arrStatus = TasksTable::getPriorities();
         $status = "<select class='select is-link' name='Status'>";
         $statusElement = $task['STATUS'];
         foreach ($arrStatus as $value)

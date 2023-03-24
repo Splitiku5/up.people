@@ -5,6 +5,7 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Tasks");
+\Bitrix\Main\Loader::includeModule('up.tasks');
 
     $result = \Up\Tasks\Tasks::updateTask($_POST);
 
