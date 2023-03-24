@@ -5,7 +5,7 @@ use Bitrix\Main\Routing\RoutingConfigurator;
 
 return function (RoutingConfigurator $routes)
 {
-	$routes->get('/', new PublicPageController('/local/modules/up.tasks/views/task-list.php'));
+	$routes->get('/', new PublicPageController('/local/modules/up.tasks/views/task-list.php'))->where('query', '/^[a-zа-яё\d]{1}[a-zа-яё\d\s]*[a-zа-яё\d]{1}$/i');
     $routes->post('/', new PublicPageController('/local/modules/up.tasks/views/task-create.php'));
 
     $routes->get('/delete/{id}/', new PublicPageController('/local/modules/up.tasks/views/task-delete.php'))->where('id', '[0-9]+');

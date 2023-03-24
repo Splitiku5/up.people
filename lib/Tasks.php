@@ -15,7 +15,13 @@ class Tasks
         }
         else
         {
-            var_dump($query);
+            $result = TasksTable::getList([
+                'filter' => [
+                    'LOGIC' => 'OR',
+                    '=%TITLE' => "%$query%",
+                    '=%DESCRIPTION' => "%$query%",
+                ]
+            ]);
         }
 
         return $result->fetchAll();

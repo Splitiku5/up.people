@@ -25,7 +25,6 @@ class TasksListComponent extends CBitrixComponent
 
 	protected function fetchTasksList($query = '')
 	{
-
         $tasks = \Up\Tasks\Tasks::getTasks($query);
 		$this->arResult['TASKS'] = $tasks;
 	}
