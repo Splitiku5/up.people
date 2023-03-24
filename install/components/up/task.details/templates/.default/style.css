@@ -22,13 +22,13 @@
     outline: none;
 }
 
-.hero.is-link.Low {
+.hero.is-link.low {
     background-color: #d0edf9;
 }
-.hero.is-link.Normal {
+.hero.is-link.normal {
     background-color: #f9d89d;
 }
-.hero.is-link.High {
+.hero.is-link.high {
     background-color: #f97c7c;
 }
 .hero.is-link.Completed {

@@ -45,10 +45,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 						<?=$tasks['DESCRIPTION']?>
 					</div>
 				</div>
-				<footer class="card-footer">
-					<a href="/task/<?= $tasks['ID']; ?>/" class="card-footer-item">View more</a>
-					<a href="#" class="card-footer-item">Success</a>
-				</footer>
 			</div>
 		</div>
 	<?php
@@ -98,9 +94,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 							<div class="control" >
 								<select name="priority">
-									<option value="low">Low</option>
-									<option value="normal">Normal</option>
-									<option value="high">High</option>
+									<option value="low">low</option>
+									<option value="normal">normal</option>
+									<option value="high">high</option>
 								</select>
 							</div>
 						</div>

@@ -8,15 +8,15 @@
 	overflow: clip;
 }
 
-.task-card.Low {
+.task-card.low {
 	background: #d0edf9;
 }
 
-.task-card.Normal {
+.task-card.normal {
 	background: #f9d89d;
 }
 
-.task-card.High {
+.task-card.high {
 	background: #f97c7c;
 }
 

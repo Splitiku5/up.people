@@ -129,9 +129,9 @@ class TasksTable extends DataManager
     public static function getStatuses()
     {
         return [
-            'Low',
-            'Normal',
-            'High',
+            'low',
+            'normal',
+            'high',
         ];
     }
     /**
