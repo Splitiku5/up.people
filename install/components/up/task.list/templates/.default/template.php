@@ -11,7 +11,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 	<div class="column">
 		<div class="field">
 			<div class="control">
-				<input class="input" type="text" placeholder="Search for project">
+				<form action="/" method="get">
+				<input class="input" type="text" placeholder="Search for project" name="query">
+				</form>
 			</div>
 		</div>
 	</div>
@@ -25,7 +27,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 <div class="columns is-flex-wrap-wrap  ">
 	<?php
 	foreach ($arResult['TASKS'] as $tasks): ?>
-		<div class="column is-4">
+		<div class="task-card column is-4 <?= $tasks['STATUS']?> <?= $tasks['PRIORITY']?>">
 			<div class="card">
 				<header class="card-header">
 					<a class="card-header-title" href="/task/<?= $tasks['ID']; ?>/">

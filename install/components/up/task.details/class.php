@@ -1,6 +1,7 @@
 <?php
 
-class TaskDetailsComponent extends CBitrixComponent {
+class TaskDetailsComponent extends CBitrixComponent
+{
 	public function executeComponent()
 	{
 		$this->prepareComponentParams();
@@ -15,10 +16,10 @@ class TaskDetailsComponent extends CBitrixComponent {
 
 	}
 
-	protected function fetchTask($id) {
+	protected function fetchTask($id)
+    {
 
-		Bitrix\Main\Loader::includeModule('up.tasks');
-		$result = \Up\Tasks\TasksTable::getById($id);
+        $result = \Up\TasksAPI\Tasks::getTaskByID($id);
 		foreach ($result->fetch() as $key => $row)
 		{
 
@@ -28,6 +29,32 @@ class TaskDetailsComponent extends CBitrixComponent {
         {
             unset($task['DATE_DEADLINE']);
         }
+        $arrPriority = \Up\Tasks\TasksTable::getStatuses();
+        $priority= "<select class='select is-link' name='Priority'>";
+        $priorityElement = $task['PRIORITY'];
+
+        foreach ($arrPriority as $value)
+        {
+            $selected = strtolower($priorityElement) === strtolower($value) ? 'selected' : '';
+            $priority .= "<option $selected value='$value'>$value</option>";
+        }
+        $priority .= '</select>';
+
+        $task['PRIORITY_SELECT'] = $priority;
+
+        $arrStatus = \Up\Tasks\TasksTable::getPriorities();
+        $status = "<select class='select is-link' name='Status'>";
+        $statusElement = $task['STATUS'];
+        foreach ($arrStatus as $value)
+        {
+            $selected = strtolower($statusElement) === strtolower($value) ? 'selected' : '';
+            $status .= "<option  $selected value='$value'>$value</option>";
+        }
+        $status .= '</select>';
+        $task['STATUS_SELECT'] = $status;
+
 		$this->arResult['task'] = $task;
+
+        //@todo не верно ставится дата создания.
 	}
 }

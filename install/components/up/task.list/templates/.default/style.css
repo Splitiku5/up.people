@@ -5,6 +5,21 @@
 
 .card-header {
 	height: 50px;
-
 	overflow: clip;
+}
+
+.task-card.Low {
+	background: #d0edf9;
+}
+
+.task-card.Normal {
+	background: #f9d89d;
+}
+
+.task-card.High {
+	background: #f97c7c;
+}
+
+.task-card.Completed {
+	background: #a8dfa8;
 }

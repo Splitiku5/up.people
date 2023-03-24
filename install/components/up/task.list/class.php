@@ -5,7 +5,7 @@ class TasksListComponent extends CBitrixComponent
 	public function executeComponent()
 	{
 		$this->prepareTemplateParams();
-		$this->fetchTasksList();
+		$this->fetchTasksList($this->arParams['query']);
 		$this->includeComponentTemplate();
 	}
 
@@ -21,14 +21,10 @@ class TasksListComponent extends CBitrixComponent
 		$this->arResult['DATE_FORMAT'] = $this->arParams['DATE_FORMAT'];
 	}
 
-	protected function fetchTasksList()
+	protected function fetchTasksList($query = '')
 	{
-		Bitrix\Main\Loader::includeModule('up.tasks');
 
-		$result = \Up\Tasks\TasksTable::getList(['select' => ['*']]);
-		$tasks = $result->fetchAll();
-
-
+        $tasks = \Up\Tasks\Tasks::getTasks($query);
 		$this->arResult['TASKS'] = $tasks;
 	}
 }

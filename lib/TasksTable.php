@@ -120,7 +120,32 @@ class TasksTable extends DataManager
             new LengthValidator(null, 255),
         ];
     }
-
+    /**
+     * Returns array for STATUS field.
+     *
+     * @return array
+     */
+    public static function getStatuses()
+    {
+        return [
+            'Low',
+            'Normal',
+            'High',
+        ];
+    }
+    /**
+     * Returns array for PRIORITY field.
+     *
+     * @return array
+     */
+    public static function getPriorities()
+    {
+        return [
+            'New',
+            'Progresing',
+            'Completed',
+        ];
+    }
     /**
      * Returns validators for DESCRIPTION field.
      *
