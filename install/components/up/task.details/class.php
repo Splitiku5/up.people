@@ -54,7 +54,5 @@ class TaskDetailsComponent extends CBitrixComponent
         $task['STATUS_SELECT'] = $status;
 
 		$this->arResult['task'] = $task;
-
-        //@todo не верно ставится дата создания.
 	}
 }
