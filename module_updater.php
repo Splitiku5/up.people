@@ -31,17 +31,17 @@ __projectorMigrate(2, function($updater, $DB)
 	if ($updater->CanUpdateDatabase() && !$updater->TableExists('up_projector_issues'))
 	{
 		$DB->query("CREATE TABLE IF NOT EXISTS up_tasks_task
-(
-	ID INT AUTO_INCREMENT NOT NULL,
-	TITLE VARCHAR(255) NOT NULL,
-	DESCRIPTION VARCHAR(255),
-	DATE_CREATION datetime not null,
-	DATE_DEADLINE datetime,
-	DATE_UPDATE datetime,
-	STATUS VARCHAR(255) not null default 'new',
-	PRIORITY VARCHAR(255) not null default 'normal',
-	PRIMARY KEY (ID)
-);
+            (
+                ID INT AUTO_INCREMENT NOT NULL,
+                TITLE VARCHAR(255) NOT NULL,
+                DESCRIPTION VARCHAR(255),
+                DATE_CREATION datetime not null,
+                DATE_DEADLINE datetime,
+                DATE_UPDATE datetime,
+                STATUS VARCHAR(255) not null default 'new',
+                PRIORITY VARCHAR(255) not null default 'normal',
+                PRIMARY KEY (ID)
+            );
 	");
 	}
 });

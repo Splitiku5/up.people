@@ -1,4 +1,4 @@
-<?php
+git remote add origin https://github.com/Splitiku5/TaskManager.git<?php
 /**
  * @var CMain $APPLICATION
  */

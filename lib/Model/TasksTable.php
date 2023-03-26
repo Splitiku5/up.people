@@ -129,9 +129,9 @@ class TasksTable extends DataManager
     public static function getStatuses()
     {
         return [
-            'low',
-            'normal',
-            'high',
+            'New',
+            'Progresing',
+            'Completed',
         ];
     }
     /**
@@ -141,10 +141,11 @@ class TasksTable extends DataManager
      */
     public static function getPriorities()
     {
+
         return [
-            'New',
-            'Progresing',
-            'Completed',
+            'low',
+            'normal',
+            'high',
         ];
     }
     /**

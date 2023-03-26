@@ -30,7 +30,7 @@ class TaskDetailsComponent extends CBitrixComponent
         {
             unset($task['DATE_DEADLINE']);
         }
-        $arrPriority = TasksTable::getStatuses();
+        $arrPriority = TasksTable::getPriorities();
         $priority= "<select class='select is-link' name='Priority'>";
         $priorityElement = $task['PRIORITY'];
 
@@ -43,7 +43,7 @@ class TaskDetailsComponent extends CBitrixComponent
 
         $task['PRIORITY_SELECT'] = $priority;
 
-        $arrStatus = TasksTable::getPriorities();
+        $arrStatus = TasksTable::getStatuses();
         $status = "<select class='select is-link' name='Status'>";
         $statusElement = $task['STATUS'];
         foreach ($arrStatus as $value)
