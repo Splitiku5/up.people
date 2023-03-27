@@ -141,7 +141,6 @@ class TasksTable extends DataManager
      */
     public static function getPriorities()
     {
-
         return [
             'low',
             'normal',
