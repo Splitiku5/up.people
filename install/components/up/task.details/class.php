@@ -22,12 +22,16 @@ class TaskDetailsComponent extends CBitrixComponent
                 $task['errors'] = $result->getErrorMessages();
             }
         }
+
         $result = \Up\Tasks\Tasks::getTaskByID($id);
-        $taskExist = $result;
-//        if (!$taskExist->fetch())
-//        {
-//            LocalRedirect('/');
-//        }
+        // Через clone не создает полноценную копию объекта, возможно из-за ссылок. Буду рад если узнаю как это сделать правильно, не используя 2 одинаковые строки.
+        $taskExist = \Up\Tasks\Tasks::getTaskByID($id);
+
+        if (!$taskExist->fetch())
+        {
+            LocalRedirect('/');
+            exit;
+        }
 
         foreach ($result->fetch() as $key => $row) {
             $task[$key] = $row ?: 'Не указано';

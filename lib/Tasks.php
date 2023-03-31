@@ -63,7 +63,7 @@ class Tasks
                 $deadline = '';
             }
         }
-        return TasksTable::getById((int)$_POST['TASK_ID'])->fetchObject()
+        return TasksTable::getById((int)$arguments['ID'])->fetchObject()
             ->setTitle($arguments['TITLE'])
             ->setDescription($arguments['DESCRIPTION'] ?: '')
             ->setDateDeadline($deadline ?: '')
