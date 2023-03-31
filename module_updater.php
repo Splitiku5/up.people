@@ -28,7 +28,7 @@ function __projectorMigrate(int $nextVersion, callable $callback)
 
 __projectorMigrate(2, function($updater, $DB)
 {
-	if ($updater->CanUpdateDatabase() && !$updater->TableExists('up_projector_issues'))
+	if ($updater->CanUpdateDatabase() && !$updater->TableExists('up_tasks_task'))
 	{
 		$DB->query("CREATE TABLE IF NOT EXISTS up_tasks_task
             (

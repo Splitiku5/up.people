@@ -30,10 +30,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 		<div class="task-card column is-4 <?= htmlspecialchars($tasks['STATUS'])?> <?= htmlspecialchars($tasks['PRIORITY'])?>">
 			<div class="card">
 				<header class="card-header">
-					<a class="card-header-title" href="/task/<?= $tasks['ID']; ?>/">
-						<?= htmlspecialchars($tasks['TITLE']); ?>
+					<a class="card-header-title" href="/task/<?= $tasks['ID'] ?>/">
+						<?= htmlspecialchars($tasks['TITLE']) ?>
 					</a>
-					<a class="card-header-icon" aria-label="more options"  href="/delete/<?= $tasks['ID']; ?>/" onclick="return confirm('Do you want delete this task?')">
+					<a class="card-header-icon" aria-label="more options"  href="/delete/<?= $tasks['ID'] ?>/" onclick="return confirm('Do you want delete this task?')">
 						<input type="hidden" name="ID" value="<?=$tasks['ID']?>">
 					<span class="icon disabled">
 						❌

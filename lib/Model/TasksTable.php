@@ -8,6 +8,7 @@ use Bitrix\Main\Localization\Loc,
     Bitrix\Main\ORM\Fields\IntegerField,
     Bitrix\Main\ORM\Fields\StringField,
     Bitrix\Main\ORM\Fields\Validators\LengthValidator;
+use Bitrix\Main\ORM\Fields\Validators\DateValidator;
 
 Loc::loadMessages(__FILE__);
 
@@ -182,4 +183,5 @@ class TasksTable extends DataManager
             new LengthValidator(null, 255),
         ];
     }
+
 }
