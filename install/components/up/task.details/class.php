@@ -27,8 +27,7 @@ class TaskDetailsComponent extends CBitrixComponent
         // Через clone не создает полноценную копию объекта, возможно из-за ссылок. Буду рад если узнаю как это сделать правильно, не используя 2 одинаковые строки.
         $taskExist = \Up\Tasks\Tasks::getTaskByID($id);
 
-        if (!$taskExist->fetch())
-        {
+        if (!$taskExist->fetch()) {
             LocalRedirect('/');
             exit;
         }
