@@ -27,11 +27,11 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 <div class="columns is-flex-wrap-wrap  ">
 	<?php
 	foreach ($arResult['TASKS'] as $tasks): ?>
-		<div class="task-card column is-4 <?= $tasks['STATUS']?> <?= $tasks['PRIORITY']?>">
+		<div class="task-card column is-4 <?= htmlspecialchars($tasks['STATUS'])?> <?= htmlspecialchars($tasks['PRIORITY'])?>">
 			<div class="card">
 				<header class="card-header">
 					<a class="card-header-title" href="/task/<?= $tasks['ID']; ?>/">
-						<?= $tasks['TITLE']; ?>
+						<?= htmlspecialchars($tasks['TITLE']); ?>
 					</a>
 					<a class="card-header-icon" aria-label="more options"  href="/delete/<?= $tasks['ID']; ?>/" onclick="return confirm('Do you want delete this task?')">
 						<input type="hidden" name="ID" value="<?=$tasks['ID']?>">
@@ -42,7 +42,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 				</header>
 				<div class="card-content">
 					<div class="content">
-						<?=$tasks['DESCRIPTION']?>
+						<?= htmlspecialchars($tasks['DESCRIPTION'])?>
 					</div>
 				</div>
 			</div>
