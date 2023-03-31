@@ -49,7 +49,7 @@ class Tasks
 
     public static function updateTask($arguments)
     {
-        return TasksTable::getById((int)$_POST['ID'])->fetchObject()
+        return TasksTable::getById((int)$_POST['TASK_ID'])->fetchObject()
             ->setTitle($arguments['TITLE'])
             ->setDescription($arguments['DESCRIPTION'] ?: '')
             ->setDateDeadline(((new \Bitrix\Main\Type\DateTime($arguments['DATE_DEADLINE'], 'Y-m-d'))) ?: '')

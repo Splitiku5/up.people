@@ -10,7 +10,7 @@ if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 <form method="post" action="" name="Update task">
 <section class="hero is-link <?= htmlspecialchars($arResult['task']['STATUS'])?> <?= htmlspecialchars($arResult['task']['PRIORITY'])?>">
 	<div class="hero-body px-2 py-2">
-		<input type="hidden" name="ID" value="<?=$arResult['task']['ID']?>">
+		<input type="hidden" name="TASK_ID" value="<?=$arResult['task']['ID']?>">
 		<p>
 			<input name="TITLE" class="input-title is-fullwidth" type="text" placeholder="Link input" value="<?= htmlspecialchars($arResult['task']['TITLE']) ?>">
 		</p>
