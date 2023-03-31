@@ -3,18 +3,18 @@
 use Bitrix\Main\Application;
 use Bitrix\Main\DB\Connection;
 use Bitrix\Main\Request;
+
 Bitrix\Main\Loader::includeModule('up.tasks');
 function request(): Request
 {
-	return Application::getInstance()->getContext()->getRequest();
+    return Application::getInstance()->getContext()->getRequest();
 }
 
 function db(): Connection
 {
-	return Application::getConnection();
+    return Application::getConnection();
 }
 
-if (file_exists(__DIR__ . '/module_updater.php'))
-{
-	include (__DIR__ . '/module_updater.php');
+if (file_exists(__DIR__ . '/module_updater.php')) {
+    include(__DIR__ . '/module_updater.php');
 }

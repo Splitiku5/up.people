@@ -29,7 +29,6 @@ Loc::loadMessages(__FILE__);
  *
  * @package Bitrix\Tasks
  **/
-
 class TasksTable extends DataManager
 {
     /**
@@ -122,6 +121,7 @@ class TasksTable extends DataManager
             new LengthValidator(null, 255),
         ];
     }
+
     /**
      * Returns array for STATUS field.
      *
@@ -135,6 +135,7 @@ class TasksTable extends DataManager
             'Completed',
         ];
     }
+
     /**
      * Returns array for PRIORITY field.
      *
@@ -148,6 +149,7 @@ class TasksTable extends DataManager
             'high',
         ];
     }
+
     /**
      * Returns validators for DESCRIPTION field.
      *
