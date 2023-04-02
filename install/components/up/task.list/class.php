@@ -5,16 +5,8 @@ class TasksListComponent extends CBitrixComponent
     public function executeComponent()
     {
         \Bitrix\Main\Loader::includeModule('up.tasks');
-        $this->prepareTemplateParams();
         $this->fetchTasksList();
         $this->includeComponentTemplate();
-    }
-
-    public function onPrepareComponentParams($arParams)
-    {
-        $arParams['DATE_FORMAT'] = $arParams['DATE_FORMAT'] ?? 'd.m.Y';
-
-        return $arParams;
     }
 
     protected function prepareTemplateParams()
@@ -27,7 +19,8 @@ class TasksListComponent extends CBitrixComponent
         $request = \Bitrix\Main\Application::getInstance()->getContext()->getRequest();
         if ($request->getRequestMethod() === 'POST') {
             $result = \Up\Tasks\Tasks::createTask($request->getPostList());
-            header('Location: /');
+            LocalRedirect('/');
+            exit;
         } elseif ($request->getRequestMethod() === 'GET') {
             if ($request->get('query')) {
                 $query = $request->get('query');

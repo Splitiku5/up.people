@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS up_tasks;
+DROP TABLE IF EXISTS up_tasks_task;

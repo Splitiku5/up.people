@@ -14,7 +14,7 @@ if ($arResult['task']['errors']):
 			<p>Произошла ошибка</p>
 		</div>
 		<div class="message-body">
-			' . $message . '
+			<?= ' . $message . ' ?>
 		</div>
 	 </article>
 	 <?php endforeach; ?>

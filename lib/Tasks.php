@@ -56,6 +56,11 @@ class Tasks
 
     public static function updateTask($arguments)
     {
+        $result = TasksTable::getById((int)$arguments['ID'])->fetchObject();
+        if (!$result)
+        {
+            LocalRedirect('/');
+        }
         if ($arguments['DATE_DEADLINE']) {
             if (\Bitrix\Main\Type\DateTime::isCorrect($arguments['DATE_DEADLINE'], 'Y-m-d')) {
                 $deadline = new \Bitrix\Main\Type\DateTime($arguments['DATE_DEADLINE'], 'Y-m-d');
@@ -63,7 +68,7 @@ class Tasks
                 $deadline = '';
             }
         }
-        return TasksTable::getById((int)$arguments['ID'])->fetchObject()
+        return $result
             ->setTitle($arguments['TITLE'])
             ->setDescription($arguments['DESCRIPTION'] ?: '')
             ->setDateDeadline($deadline ?: '')

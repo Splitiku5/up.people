@@ -23,16 +23,13 @@ class TaskDetailsComponent extends CBitrixComponent
             }
         }
 
-        $result = \Up\Tasks\Tasks::getTaskByID($id);
-        // Через clone не создает полноценную копию объекта, возможно из-за ссылок. Буду рад если узнаю как это сделать правильно, не используя 2 одинаковые строки.
-        $taskExist = \Up\Tasks\Tasks::getTaskByID($id);
-
-        if (!$taskExist->fetch()) {
+        $result = \Up\Tasks\Tasks::getTaskByID($id)->fetch();
+        if (!$result) {
             LocalRedirect('/');
             exit;
         }
 
-        foreach ($result->fetch() as $key => $row) {
+        foreach ($result as $key => $row) {
             $task[$key] = $row ?: 'Не указано';
         }
         if ($task['DATE_DEADLINE'] === 'Не указано') {
