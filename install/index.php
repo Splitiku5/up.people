@@ -5,9 +5,9 @@ use Bitrix\Main\ModuleManager;
 
 Loc::loadMessages(__FILE__);
 
-class up_tasks extends CModule
+class up_people extends CModule
 {
-    public $MODULE_ID = 'up.tasks';
+    public $MODULE_ID = 'up.people';
     public $MODULE_VERSION;
     public $MODULE_VERSION_DATE;
     public $MODULE_NAME;
@@ -31,7 +31,7 @@ class up_tasks extends CModule
     {
         global $DB;
 
-        $DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.tasks/install/db/install.sql');
+        $DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.people/install/db/install.sql');
 
         ModuleManager::registerModule($this->MODULE_ID);
     }
@@ -40,7 +40,7 @@ class up_tasks extends CModule
     {
         global $DB;
 
-        $DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.tasks/install/db/uninstall.sql');
+        $DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.people/install/db/uninstall.sql');
 
         ModuleManager::unRegisterModule($this->MODULE_ID);
     }
@@ -48,21 +48,21 @@ class up_tasks extends CModule
     public function installFiles(): void
     {
         CopyDirFiles(
-            $_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.tasks/install/components',
+            $_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.people/install/components',
             $_SERVER['DOCUMENT_ROOT'] . '/local/components/',
             true,
             true
         );
 
         CopyDirFiles(
-            $_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.tasks/install/templates',
+            $_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.people/install/templates',
             $_SERVER['DOCUMENT_ROOT'] . '/local/templates/',
             true,
             true
         );
 
         CopyDirFiles(
-            $_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.tasks/install/routes',
+            $_SERVER['DOCUMENT_ROOT'] . '/local/modules/up.people/install/routes',
             $_SERVER['DOCUMENT_ROOT'] . '/local/routes/',
             true,
             true

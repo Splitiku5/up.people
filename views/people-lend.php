@@ -4,8 +4,9 @@
  */
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
-$APPLICATION->SetTitle("Tasks");
+$APPLICATION->SetTitle("ForPeople");
+?>
 
-$APPLICATION->IncludeComponent('up:task.list', '', []);
+//$APPLICATION->IncludeComponent('up:task.list', '', []);
 
-require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
